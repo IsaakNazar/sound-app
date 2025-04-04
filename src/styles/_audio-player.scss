@@ -1,0 +1,26 @@
+ngx-audio-player {
+  margin-top: 20px;
+
+  & > mat-toolbar {
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.35);
+    min-height: auto !important;
+    padding: 5px 0;
+
+    & .progress-container {
+      width: 100%;
+    }
+  }
+}
+
+.mat-menu-panel {
+  min-width: auto !important;
+}
+.mat-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & .mat-menu-item .mat-icon {
+    margin-right: 0;
+  }
+}

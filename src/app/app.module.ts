@@ -7,10 +7,14 @@ import {AudioManagerComponent} from './components/audio-manager/audio-manager.co
 import {RouterOutlet} from "@angular/router";
 import {AppRoutingModule} from "./app-routing.module";
 import {MatTableModule} from "@angular/material/table";
+import {AudioPlayerComponent} from './components/audio-player/audio-player.component';
+import {NgxAudioPlayerMaterialModule} from "ngx-audio-player-material";
+import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
-  declarations: [AppComponent, AudioManagerComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, RouterOutlet, AppRoutingModule, MatTableModule],
+  declarations: [AppComponent, AudioManagerComponent, AudioPlayerComponent],
+  imports: [BrowserModule, BrowserAnimationsModule, RouterOutlet, AppRoutingModule, MatTableModule, NgxAudioPlayerMaterialModule, HttpClientModule, MatCardModule],
   providers: [],
   bootstrap: [AppComponent]
 })

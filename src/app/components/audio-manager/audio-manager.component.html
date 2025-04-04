@@ -1,25 +1,31 @@
 <div class="audio-container">
-  <table mat-table [dataSource]="dataSource$" class="audio-table mat-elevation-z8">
+  <ng-container *ngIf="dataSource$ | async as dataSource">
+    <table mat-table [dataSource]="dataSource" class="audio-table mat-elevation-z8">
 
-    <ng-container matColumnDef="audio-position">
-      <th mat-header-cell *matHeaderCellDef> No.</th>
-      <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
-    </ng-container>
+      <ng-container matColumnDef="audio-position">
+        <th mat-header-cell *matHeaderCellDef> No.</th>
+        <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="audio-name">
-      <th mat-header-cell *matHeaderCellDef> Name</th>
-      <td mat-cell *matCellDef="let element"> {{ element.display_name }}</td>
-    </ng-container>
+      <ng-container matColumnDef="audio-name">
+        <th mat-header-cell *matHeaderCellDef> Name</th>
+        <td mat-cell *matCellDef="let element"> {{ element.displayName }}</td>
+      </ng-container>
 
-    <ng-container matColumnDef="audio-filename">
-      <th mat-header-cell *matHeaderCellDef> File Name</th>
-      <td mat-cell *matCellDef="let element"> {{ element.file_name }}</td>
-    </ng-container>
+      <ng-container matColumnDef="audio-filename">
+        <th mat-header-cell *matHeaderCellDef> File Name</th>
+        <td mat-cell *matCellDef="let element"> {{ element.fileName }}</td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="audio-row" (click)="selectRow(row)"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+          *matRowDef="let row; columns: displayedColumns;"
+          class="audio-row"
+          [class.selected]="selectedAudio?.id === row.id"
+          (click)="selectRow(row)"></tr>
+    </table>
+  </ng-container>
 
-  <app-audio-player *ngIf="selectedAudio" [audio]="selectedAudio"></app-audio-player>
+  <app-audio-player *ngIf="selectedAudio" [audioInfo]="selectedAudio"></app-audio-player>
 </div>
 

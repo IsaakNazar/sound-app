@@ -8,7 +8,7 @@ import {AudioInfoInterface} from "../../interfaces/audio-info.interface";
   styleUrls: ['./audio-player.component.scss']
 })
 export class AudioPlayerComponent {
-  @Input('audio') audioInfo?: AudioInfoInterface;
+  @Input() audioInfo?: AudioInfoInterface;
 
   @ViewChild('audioPlayer') audioPlayer!: NgxAudioPlayerMaterialComponent;
 }

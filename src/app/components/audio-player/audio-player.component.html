@@ -1,2 +1,4 @@
-<ngx-audio-player #audioPlayer
-  [src]="'assets/sounds/' + audioInfo?.file_name"></ngx-audio-player>
+<ngx-audio-player
+  #audioPlayer
+  *ngIf="audioInfo"
+  [src]="'assets/sounds/' + audioInfo.fileName"></ngx-audio-player>
